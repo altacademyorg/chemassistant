@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Assistant</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .chat-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .user-message {
+            text-align: right;
+            font-weight: bold;
+        }
+        .assistant-message {
+            text-align: left;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chemistry Assistant</h1>
+    <div class="chat-container" id="chat">
+        <!-- Chat messages will appear here -->
+    </div>
+    <form id="chat-form" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <input type="text" id="question" name="question" placeholder="Ask a chemistry question..." style="width: 80%;">
+        <input type="file" id="image" name="image" accept="image/*">
+        <button type="submit">Send</button>
+    </form>
+    
+
+    <script>
+        $(document).ready(function() {
+            $("#chat-form").submit(function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(this);
+
+                const userMessage = $("#question").val().trim();
+                const fileInput = $("#image").val();
+
+                if (userMessage || fileInput) {
+                    if (userMessage) {
+                        $("#chat").append('<div class="message user-message">' + userMessage + '</div>');
+                    }
+                    $("#question").val("");
+
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(data) {
+                            $("#chat").append('<div class="message assistant-message">' + data.response + '</div>');
+                        },
+                        error: function() {
+                            $("#chat").append('<div class="message assistant-message">Error processing your request. Please try again.</div>');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

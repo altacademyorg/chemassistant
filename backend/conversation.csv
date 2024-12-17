@@ -1,0 +1,36 @@
+hy,Hello! How can I assist you with Chemistry today?,
+answer this,"To calculate the enthalpy change \(\Delta H_r\), we use the formula provided:
+
+\[
+\Delta H_r = \Sigma \Delta H_f^\circ (\text{products}) - \Sigma \Delta H_f^\circ (\text{reactants})
+\]
+
+Substituting the given values:
+
+\[
+\Delta H_r = [2(-580) + 3(-1438) + 3(-286)] - [(-2061) + 4(-437) + 3(-814)]
+\]
+
+Calculate each side:
+
+For products:
+- \(2(-580) = -1160\)
+- \(3(-1438) = -4314\)
+- \(3(-286) = -858\)
+
+Sum for products: \(-1160 - 4314 - 858 = -6332\)
+
+For reactants:
+- \(-2061\)
+- \(4(-437) = -1748\)
+- \(3(-814) = -2442\)
+
+Sum for reactants: \(-2061 - 1748 - 2442 = -6251\)
+
+Calculate \(\Delta H_r\):
+
+\[
+\Delta H_r = -6332 - (-6251) = -6332 + 6251 = -81 \, \text{kJ/mol}
+\]
+
+The enthalpy change for the reaction is \(-81 \, \text{kJ/mol}\).",image1.jpg
