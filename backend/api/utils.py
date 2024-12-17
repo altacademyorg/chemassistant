@@ -37,15 +37,15 @@ import json
 # Load API key and model from the configuration file
 import os
 
-# def load_config():
-#     config_path = os.path.join(os.getcwd(),"api", "config", "config.json")  # Dynamically generate the path
-#     with open(config_path, "r") as f:
-#         config = json.load(f)
-#     return config
+def load_config():
+    config_path = os.path.join(os.getcwd(),"api", "config", "config.json")  # Dynamically generate the path
+    with open(config_path, "r") as f:
+        config = json.load(f)
+    return config
 
-# # Set up OpenAI API key from the config file
-# config = load_config()
-# openai.api_key = config["openai_api_key"]
+# Set up OpenAI API key from the config file
+config = load_config()
+openai.api_key = config["openai_api_key"]
 
 def encode_image(image_file):
     """
